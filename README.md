@@ -59,19 +59,19 @@ It can also receive streaming content from stdin:
 Flags
 =====
 
-### `-c`
+#### `-c`
 
 Count hits, rather than enumerating them.
 
-### `-0`
+#### `-0`
 
 Use a NUL terminator for interoperability with other programs.
 
-### `-h`
+#### `-h`
 
 Hide the filename.
 
-### `-m _<num>_`
+#### `-m <num>`
 
 Limit search to _num_ hits.
 
