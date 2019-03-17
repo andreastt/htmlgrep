@@ -1,0 +1,18 @@
+[package]
+name = "htmlgrep"
+version = "0.1.0"
+authors = ["Andreas Tolfsen <ato@sny.no>"]
+license = "ISC"
+description = "Utility for searching HTML documents using CSS selectors"
+repository = "https://github.com/andreastt/htmlgrep"
+readme = "README.md"
+documentation = "https://docs.rs/htmlgrep"
+keywords = ["grep", "html", "search", "find"]
+categories = ["command-line-utilities", "parsing", "text-processing"]
+build = "doc/build.rs"
+
+[dependencies]
+kuchiki = "0.7"
+
+[badges]
+travis-ci = { repository = "andreastt/htmlgrep" }
