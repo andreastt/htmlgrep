@@ -6,7 +6,7 @@ that allows selecting elements by various types of selectors.
 
 The suite consists of the following programs:
 
-  - [__css(1)__](./tree/master/doc/css.1.md)
+  - [__css(1)__](./doc/css.1.md)
 
 The tools are built with the HTML tree manipulation library [Kuchiki] (朽木),
 which uses the same HTML parser as the [Servo] browser engine.
