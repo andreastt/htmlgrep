@@ -1,15 +1,15 @@
 htmlgrep
 ========
 
-The __htmlgrep__ utilities search HTML documents, selecting elements
-by various types of selectors.
+__htmlgrep__ is a suite of command-line tools for searching HTML documents,
+that allows selecting elements by various types of selectors.
 
 The suite consists of the following programs:
 
-  - __css(1)__
+  - [__css(1)__](./tree/master/doc/css.1.md)
 
-The tool is built upon [Kuchiki] (朽木), which uses the same HTML
-parser as the [Servo] browser engine.
+The tools are built with the HTML tree manipulation library [Kuchiki] (朽木),
+which uses the same HTML parser as the [Servo] browser engine.
 
 [grep(1)]: https://man.openbsd.org/grep.1
 [kuchiki]: https://github.com/kuchiki-rs/kuchiki
