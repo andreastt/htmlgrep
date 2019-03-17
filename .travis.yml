@@ -1,20 +1,24 @@
 language: rust
 cache:
   directories:
-    - $HOME/.cargo
-    - $TRAVIS_BUILD_DIR/target
+  - $HOME/.cargo
+  - $TRAVIS_BUILD_DIR/target
 
 matrix:
   include:
-    - os: linux
+  - os: linux
+    addons:
+      apt:
+        packages:
+        - pandoc
 
-    - rust: stable
-    - rust: beta
-    - rust: nightly
+  - rust: stable
+  - rust: beta
+  - rust: nightly
 
   allow_failures:
-    - rust: nightly
+  - rust: nightly
 
 script:
-  - cargo build --verbose
-  - RUST_BACKTRACE=1 cargo test --verbose --all
+- cargo build --verbose
+- RUST_BACKTRACE=1 cargo test --verbose --all
