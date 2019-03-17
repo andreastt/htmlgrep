@@ -31,29 +31,37 @@ Usage
 
 Given the followig HTML document, _first.html_:
 
-	<!doctype html>
-	<meta charset=utf>
-	<title>My first blog post</title>
-	<meta name=keywords content=blog,first,hello>
-	<meta name=description content="First entry to blog.">
+```html
+<!doctype html>
+<meta charset=utf>
+<title>My first blog post</title>
+<meta name=keywords content=blog,first,hello>
+<meta name=description content="First entry to blog.">
+```
 
 To find all occurrences of `<meta>` elements:
 
-	% css first.html meta
-	first.html	<meta content="blog,first,hello" name="keywords">
-	first.html	<meta content="First entry to blog." name="description">
+```shell
+% css first.html meta
+first.html	<meta content="blog,first,hello" name="keywords">
+first.html	<meta content="First entry to blog." name="description">
+```
 
 And to only look for `<meta>` elements with 	a `name` attribute
 equal to `keywords` and a `content` attribute containing `blog`
 in a space-separated list:
 
-	% css meta[name=keywords][content~=blog] first.html
-	first.html	<meta content="blog,first,hello" name="keywords">
+```shell
+% css meta[name=keywords][content~=blog] first.html
+first.html	<meta content="blog,first,hello" name="keywords">
+```
 
 It can also receive streaming content from stdin:
 
-	% curl -L https://sny.no/ | css title
-	/dev/stdin	<title>Andreas Tolfsen</title>
+```shell
+% curl -L https://sny.no/ | css title
+/dev/stdin	<title>Andreas Tolfsen</title>
+```
 
 
 Library usage
