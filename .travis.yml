@@ -1,17 +1,10 @@
 language: rust
-cache: cargo
+
+rust:
+  - stable
+  - beta
+  - nightly
 
 matrix:
-	include:
-		- os: linux
-
-		- rust: stable
-		- rust: beta
-		- rust: nightly
-
-	allow_failures:
-		- rust: nightly
-
-script:
-	- cargo build --verbose
-	- RUST_BACKTRACE=1 cargo test --verbose --all
+  allow_failures:
+    - rust: nightly
