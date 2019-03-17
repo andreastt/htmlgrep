@@ -39,7 +39,7 @@ As a CLI tool, given the followig HTML document, _blog.html_:
 
 To find all occurrences of `<meta>` elements:
 
-	% css first.html meta
+	% css blog.html meta
 	first.html	<meta content="blog,first,hello" name="keywords">
 	first.html	<meta content="First entry to blog." name="description">
 
@@ -47,7 +47,7 @@ And to only look for `<meta>` elements with a `name` attribute equal
 to `keywords` and a `content` attribute containing `blog` in a
 space-separated list:
 
-	% css meta[name=keywords][content~=blog] first.html
+	% css meta[name=keywords][content~=blog] blog.html
 	first.html	<meta content="blog,first,hello" name="keywords">
 
 It can also receive streaming content from stdin:
