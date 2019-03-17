@@ -1,23 +1,19 @@
 language: rust
+sudo: false
 cache:
   directories:
   - $HOME/.cargo
   - $TRAVIS_BUILD_DIR/target
 
-matrix:
-  include:
-  - os: linux
-    addons:
-      apt:
-        packages:
-        - pandoc
+addons:
+  apt:
+    packages:
+    -pandoc
 
-  - rust: stable
-  - rust: beta
-  - rust: nightly
-
-  allow_failures:
-  - rust: nightly
+rust:
+- nightly
+- beta
+- stable
 
 script:
 - cargo build --verbose
