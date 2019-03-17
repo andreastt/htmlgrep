@@ -27,9 +27,6 @@ find out how someone before you solved one particular problem.
 **-h**
 : Never print filename headers (i.e. filenames) with output lines.
 
-**--help**
-: Display summary of options.
-
 **-m _num_**, **--max-count**=_num_
 : Stop after _num_ matches.
 
