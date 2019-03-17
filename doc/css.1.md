@@ -15,16 +15,16 @@ css - search HTML documents by CSS selectors
 # OPTIONS
 
 **-c**, **--count**
-: Only a count of selected lines is written to standard output.
+: Count hits, rather than enumerating them.
 
 **-0**
-:
+: Use a NUL terminator for interoperability with other programs.
 
 **-h**
-: Never print filename headers (i.e. filenames) with output lines.
+: Hide the filename headers.
 
 **-m _num_**, **--max-count**=_num_
-: Stop after _num_ matches.
+: Limit search to _num_ hits.
 
 **--version**
 : Display version information.

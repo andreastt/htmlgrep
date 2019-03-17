@@ -56,26 +56,6 @@ It can also receive streaming content from stdin:
 	/dev/stdin	<title>Andreas Tolfsen</title>
 
 
-Flags
-=====
-
-#### `-c`
-
-Count hits, rather than enumerating them.
-
-#### `-0`
-
-Use a NUL terminator for interoperability with other programs.
-
-#### `-h`
-
-Hide the filename.
-
-#### `-m <num>`
-
-Limit search to _num_ hits.
-
-
 Library usage
 =============
 
