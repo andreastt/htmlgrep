@@ -29,58 +29,52 @@ Using the [cargo] package manager:
 Usage
 =====
 
-Given the followig HTML document, _first.html_:
+As a CLI tool, given the followig HTML document, _first.html_:
 
-```html
-<!doctype html>
-<meta charset=utf>
-<title>My first blog post</title>
-<meta name=keywords content=blog,first,hello>
-<meta name=description content="First entry to blog.">
-```
+	<!doctype html>
+	<meta charset=utf>
+	<title>My first blog post</title>
+	<meta name=keywords content=blog,first,hello>
+	<meta name=description content="First entry to blog.">
 
 To find all occurrences of `<meta>` elements:
 
-```shell
-% css first.html meta
-first.html	<meta content="blog,first,hello" name="keywords">
-first.html	<meta content="First entry to blog." name="description">
-```
+	% css first.html meta
+	first.html	<meta content="blog,first,hello" name="keywords">
+	first.html	<meta content="First entry to blog." name="description">
 
-And to only look for `<meta>` elements with 	a `name` attribute
-equal to `keywords` and a `content` attribute containing `blog`
-in a space-separated list:
+And to only look for `<meta>` elements with a `name` attribute equal
+to `keywords` and a `content` attribute containing `blog` in a
+space-separated list:
 
-```shell
-% css meta[name=keywords][content~=blog] first.html
-first.html	<meta content="blog,first,hello" name="keywords">
-```
+	% css meta[name=keywords][content~=blog] first.html
+	first.html	<meta content="blog,first,hello" name="keywords">
 
 It can also receive streaming content from stdin:
 
-```shell
-% curl -L https://sny.no/ | css title
-/dev/stdin	<title>Andreas Tolfsen</title>
-```
+	% curl -L https://sny.no/ | css title
+	/dev/stdin	<title>Andreas Tolfsen</title>
 
 
-Library usage
-=============
+Library
+=======
 
-```rust
-use htmlgrep;
+Programmatically, with the [htmlgrep] crate:
 
-let input = r#"
-<!doctype html>
-<meta charset=utf>
-<title>My first blog post</title>
-<meta name=keywords content=blog,first,hello>
-<meta name=description content="First entry to blog.">
-"#;
+	use htmlgrep;
 
-let matches = htmlgrep::select("meta[name=keywords]", input.as_bytes()).unwrap();
+	let input = r#"
+	<!doctype html>
+	<meta charset=utf>
+	<title>My first blog post</title>
+	<meta name=keywords content=blog,first,hello>
+	<meta name=description content="First entry to blog.">
+	"#;
 
-for node in matches {
-	println!("{}", node.source);
-}
-```
+	let matches = htmlgrep::select("meta[name=keywords]", input.as_bytes()).unwrap();
+
+	for node in matches {
+		println!("{}", node.source);
+	}
+
+[htmlgrep]: https://crates.io/crates/htmlgrep
