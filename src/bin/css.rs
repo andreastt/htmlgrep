@@ -128,6 +128,7 @@ fn determine_operation(flags: &mut flag::Arguments) -> ProgramResult<Operation> 
 	};
 
 	let mut free = flags.free();
+	free.reverse();
 
 	let selector = match free.pop() {
 		Some(s) => s.clone(),
