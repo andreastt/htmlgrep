@@ -1,16 +1,23 @@
 use std::env;
+use std::io;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
 fn doc(out: PathBuf) {
-	Command::new("pandoc")
+	let result = Command::new("pandoc")
 		.arg("doc/htmlgrep.1.md")
 		.arg("-t")
 		.arg("man")
 		.arg("-o")
 		.arg(out.join("htmlgrep.1"))
-		.output()
-		.expect("missing pandoc");
+		.output();
+
+	match result {
+		Err(ref e) if e.kind() == io::ErrorKind::NotFound => eprintln!("      missing pandoc"),
+		_ => {
+			result.expect("could not run pandoc");
+		}
+	}
 }
 
 fn main() {
