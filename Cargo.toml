@@ -1,6 +1,6 @@
 [package]
 name = "htmlgrep"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Andreas Tolfsen <ato@sny.no>"]
 license = "ISC"
 description = "htmlgrep is a suite of tools for searching HTML documents"
