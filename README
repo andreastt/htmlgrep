@@ -1,72 +1,69 @@
-htmlgrep is a suite of command-line tools for searching HTML
-documents, that allows selecting elements by various types of
-selectors.
+HTMLGREP
 
-The suite consists of the following programs:
+  htmlgrep is a suite of command-line tools for searching HTML
+  documents, that allows selecting elements by various types of
+  selectors.
 
-  - css(1)
+  The suite consists of the following programs:
 
-The tools are built with the HTML tree manipulation library Kuchiki
-(朽木), which uses the same HTML parser as the Servo browser engine.
+    - css(1)
 
+  The tools are built with the HTML tree manipulation library Kuchiki
+  (朽木), which uses the same HTML parser as the Servo browser
+  engine.
 
-Installation
-============
+INSTALL
 
-Using the cargo package manager:
+  Using the cargo package manager:
 
-	% cargo install htmlgrep
+  	% cargo install htmlgrep
 
+USAGE
 
-Usage
-=====
+  As a CLI tool, given the followig HTML document, blog.html:
 
-As a CLI tool, given the followig HTML document, blog.html_:
+  	<!doctype html>
+  	<meta charset=utf-8>
+  	<title>My first blog post</title>
+  	<meta name=keywords content=blog,first,hello>
+  	<meta name=description content="First entry to blog.">
 
-	<!doctype html>
-	<meta charset=utf>
-	<title>My first blog post</title>
-	<meta name=keywords content=blog,first,hello>
-	<meta name=description content="First entry to blog.">
+  To find all occurrences of <meta> elements:
 
-To find all occurrences of `<meta>` elements:
+  	% css meta blog.html
+  	<meta content="blog,first,hello" name="keywords">
+  	<meta content="First entry to blog." name="description">
 
-	% css blog.html meta
-	first.html	<meta content="blog,first,hello" name="keywords">
-	first.html	<meta content="First entry to blog." name="description">
+  And to only look for <meta> elements with a `name` attribute
+  equal to `keywords` and a `content` attribute containing `blog`
+  in a space-separated list:
 
-And to only look for `<meta>` elements with a `name` attribute equal
-to `keywords` and a `content` attribute containing `blog` in a
-space-separated list:
+  	% css meta[name=keywords][content~=blog] blog.html
+  	<meta content="blog,first,hello" name="keywords">
 
-	% css meta[name=keywords][content~=blog] blog.html
-	first.html	<meta content="blog,first,hello" name="keywords">
+  It can also receive streaming content from stdin:
 
-It can also receive streaming content from stdin:
+  	% curl -L https://sny.no/ | css title
+  	<title>Andreas Tolfsen</title>
 
-	% curl -L https://sny.no/ | css title
-	/dev/stdin	<title>Andreas Tolfsen</title>
+LIBRARY
 
+  Programmatically, with the htmlgrep crate:
 
-Library
-=======
+  	extern crate htmlgrep;
 
-Programmatically, with the htmlgrep crate:
+  	fn main() {
+  		let input = r#"
+  			<!doctype html>
+  			<meta charset=utf>
+  			<title>My first blog post</title>
+  			<meta name=keywords content=blog,first,hello>
+  			<meta name=description content="First entry to blog.">
+  		"#;
 
-	extern crate htmlgrep;
+  		let matches = htmlgrep::select("meta[name=keywords]", input.as_bytes()).unwrap();
 
-	fn main() {
-		let input = r#"
-			<!doctype html>
-			<meta charset=utf>
-			<title>My first blog post</title>
-			<meta name=keywords content=blog,first,hello>
-			<meta name=description content="First entry to blog.">
-		"#;
-
-		let matches = htmlgrep::select("meta[name=keywords]", input.as_bytes()).unwrap();
-
-		for node in matches {
-			println!("{}", node.source);
-		}
-	}
+  		for node in matches {
+  			println!("{}", node.source);
+  		}
+  	}
