@@ -7,7 +7,8 @@ man1 = $(m1:.txt=)
 man: $(man1)
 
 clean-man:
-	rm -f $(man1)
+	rm -f doc/*.1
+	rm -f doc/*.xml
 
 install-man:
 	@echo
