@@ -12,40 +12,6 @@ HTMLGREP
   (朽木), which uses the same HTML parser as the Servo browser
   engine.
 
-INSTALL
-
-  Using the cargo package manager:
-
-  	% cargo install htmlgrep
-
-USAGE
-
-  As a CLI tool, given the followig HTML document, blog.html:
-
-  	<!doctype html>
-  	<meta charset=utf-8>
-  	<title>My first blog post</title>
-  	<meta name=keywords content=blog,first,hello>
-  	<meta name=description content="First entry to blog.">
-
-  To find all occurrences of <meta> elements:
-
-  	% css meta blog.html
-  	<meta content="blog,first,hello" name="keywords">
-  	<meta content="First entry to blog." name="description">
-
-  And to only look for <meta> elements with a `name` attribute
-  equal to `keywords` and a `content` attribute containing `blog`
-  in a space-separated list:
-
-  	% css meta[name=keywords][content~=blog] blog.html
-  	<meta content="blog,first,hello" name="keywords">
-
-  It can also receive streaming content from stdin:
-
-  	% curl -L https://sny.no/ | css title
-  	<title>Andreas Tolfsen</title>
-
 LIBRARY
 
   Programmatically, with the htmlgrep crate:

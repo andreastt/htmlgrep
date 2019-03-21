@@ -6,6 +6,16 @@
 htmlgrep is a suite of command-line tools for searching HTML documents,
 that allows selecting elements by various types of selectors.
 
+<p>
+It currently only provides a single utility program:
+
+<dl>
+<dt>css(1)
+<dd>
+Search HTML documents by CSS selector,
+similar to <a href=https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll><code>document.querySelectorAll()</code></a>.
+</dl>
+
 
 <h2>Features</h2>
 
@@ -13,19 +23,57 @@ that allows selecting elements by various types of selectors.
 TODO.
 
 
+<h2>Usage</h2>
+
+<p>
+Given the followig HTML document, <em>blog.html</em>:
+
+<pre><code>
+&lt;!doctype html&gt;
+&lt;meta charset=utf-8&gt;
+&lt;title&gt;My first blog post&lt;/title&gt;
+&lt;meta name=keywords content=blog,first,hello&gt;
+&lt;meta name=description content="First entry to blog."&gt;
+</pre></code>
+
+<p>
+To find all occurrences of <code>&lt;meta&gt;</code> elements:
+
+<pre>
+% css meta blog.html
+&lt;meta content="blog,first,hello" name="keywords"&gt;
+&lt;meta content="First entry to blog." name="description"&gt;
+</pre>
+
+<p>
+And to only look for <code>&lt;meta&gt;</code> elements
+with a <code>name</code> attribute equal to "keywords"
+and a <code>content</code> attribute containing "blog" in a space-separated list:
+
+<pre>
+% css meta[name=keywords][content~=blog] blog.html
+&lt;meta content="blog,first,hello" name="keywords"&gt;
+</pre>
+
+<p>
+It can also receive streaming content from stdin:
+
+<pre>
+% curl -L https://sny.no/ | css title
+&lt;title&gt;Andreas Tolfsen&lt;/title&gt;
+</pre>
+
+
 <h2>Source code</h2>
 
 <p>
-Download current or past <a href=https://git.sny.no/htmlgrep/refs/tags>releases</a>
+Install with <code>cargo install htmlgrep</code>.
 
 <p>
-Clone the repo: <code>git clone https://git.sny.no/htmlgrep</code>
+Download current or past <a href=https://git.sny.no/htmlgrep/refs/tags>releases</a>.
 
 <p>
-See the <a href=https://git.sny.no/htmlgrep/tree/README>README</a> for build instructions
-
-
-<h2>Contributing</h2>
+Clone the repo from <code>git clone https://git.sny.no/htmlgrep</code>.
 
 <p>
-TODO.
+See the <a href=https://git.sny.no/htmlgrep/tree/README>README</a> for build instructions.
