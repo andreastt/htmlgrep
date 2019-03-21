@@ -11,25 +11,3 @@ HTMLGREP
   The tools are built with the HTML tree manipulation library Kuchiki
   (朽木), which uses the same HTML parser as the Servo browser
   engine.
-
-LIBRARY
-
-  Programmatically, with the htmlgrep crate:
-
-  	extern crate htmlgrep;
-
-  	fn main() {
-  		let input = r#"
-  			<!doctype html>
-  			<meta charset=utf>
-  			<title>My first blog post</title>
-  			<meta name=keywords content=blog,first,hello>
-  			<meta name=description content="First entry to blog.">
-  		"#;
-
-  		let matches = htmlgrep::select("meta[name=keywords]", input.as_bytes()).unwrap();
-
-  		for node in matches {
-  			println!("{}", node.source);
-  		}
-  	}

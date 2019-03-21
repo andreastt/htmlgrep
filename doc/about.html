@@ -64,6 +64,32 @@ It can also receive streaming content from stdin:
 </pre>
 
 
+<h2>Library</h2>
+
+<p>
+You can also use htmlgrep programmatically:
+
+<pre>
+extern crate htmlgrep;
+
+fn main() {
+	let input = r#"
+		&lt;!doctype html&gt;
+		&lt;meta charset=utf&gt;
+		&lt;title&gt;My first blog post&lt;/title&gt;
+		&lt;meta name=keywords content=blog,first,hello&gt;
+		&lt;meta name=description content="First entry to blog."&gt;
+	"#;
+
+	let matches = htmlgrep::select("meta[name=keywords]", input.as_bytes()).unwrap();
+
+	for node in matches {
+		println!("{}", node.source);
+	}
+}
+</pre>
+
+
 <h2>Source code</h2>
 
 <p>
