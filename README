@@ -4,13 +4,17 @@ HTMLGREP
   documents, that allows selecting elements by various types of
   selectors.
 
-   It currently only provides a single utility program:
+  It currently only provides a single utility program:
 
     - css(1)
 
   The tools are built with the HTML tree manipulation library Kuchiki
   (朽木), which uses the same HTML parser as the Servo browser
   engine.
+
+  Please see the website for usage instructions:
+
+  	https://git.sny.no/htmlgrep/about/
 
 BUILDING
 
