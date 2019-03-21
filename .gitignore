@@ -1,2 +1,4 @@
 Makefile.local
+doc/*.1
+doc/*.xml
 target/
