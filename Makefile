@@ -23,7 +23,7 @@ run: $(BINS)
 	$^ $(BINFLAGS)
 
 test: $(SRCS)
-	cargo test $(CARGOFLAGS) -- --nocapture $(BINFLAGS)
+	RUST_BACKTRACE=1 cargo test --all -- --nocapture $(BINFLAGS)
 
 doc: $(SRCS) | man
 	cargo doc

@@ -16,5 +16,5 @@ rust:
 - stable
 
 script:
-- cargo build --verbose
-- RUST_BACKTRACE=1 cargo test --verbose --all
+- make
+- make test
