@@ -8,7 +8,7 @@ cache:
 addons:
   apt:
     packages:
-    - pandoc
+    - asciidoc
 
 rust:
 - nightly
