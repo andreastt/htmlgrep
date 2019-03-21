@@ -7,7 +7,7 @@ BINS := target/$(TARGET)/css
 SRCS := $(wildcard src/**/*.rs)
 
 .PHONY: all
-all: $(BINS)
+all: $(BINS) man
 
 include doc/include.mk
 

@@ -1,10 +1,10 @@
 m1 = doc/css.1.txt
-man1 = $(m1:.txt=.1)
+man1 = $(m1:.txt=)
 
-%.1 : %.1.txt
+%.1: %.1.txt
 	a2x -f manpage $<
 
-man: $(m1)
+man: $(man1)
 
 clean-man:
 	rm -f $(man1)
