@@ -2,7 +2,7 @@ m1 = doc/css.1.txt
 man1 = $(m1:.txt=)
 
 %.1: %.1.txt
-	a2x -f manpage $<
+	XML_CATALOG_FILES=/usr/local/etc/xml/catalog a2x -f manpage $<
 
 man: $(man1)
 
