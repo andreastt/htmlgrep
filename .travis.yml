@@ -9,6 +9,7 @@ addons:
   apt:
     packages:
     - asciidoc
+    - libxml2-utils
 
 rust:
 - nightly
