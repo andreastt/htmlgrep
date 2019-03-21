@@ -9,7 +9,6 @@ readme = "README"
 documentation = "https://docs.rs/htmlgrep"
 keywords = ["grep", "html", "search", "find"]
 categories = ["command-line-utilities", "parsing", "text-processing"]
-build = "doc/build.rs"
 
 [dependencies]
 kuchiki = "0.7"
