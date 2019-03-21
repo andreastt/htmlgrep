@@ -6,7 +6,6 @@ TARGET ?= debug
 BINS := target/$(TARGET)/css
 SRCS := $(wildcard src/**/*.rs)
 
-.PHONY: all
 all: $(BINS) man
 
 include doc/include.mk
