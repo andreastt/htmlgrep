@@ -23,3 +23,4 @@ man-uninstall:
 
 %.1.html: %.1.pod
 	pod2html $< >$@
+	rm -f pod2htmd.tmp
