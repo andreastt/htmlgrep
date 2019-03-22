@@ -10,6 +10,13 @@ documentation = "https://docs.rs/htmlgrep"
 keywords = ["grep", "html", "search", "find"]
 categories = ["command-line-utilities", "parsing", "text-processing"]
 
+[lib]
+path = "lib.rs"
+
+[[bin]]
+name = "css"
+path = "css.rs"
+
 [dependencies]
 kuchiki = "0.7"
 
