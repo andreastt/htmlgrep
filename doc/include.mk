@@ -9,7 +9,6 @@ man-test: $(m1)
 
 man-clean:
 	rm -f doc/*.1
-	rm -f doc/*.html
 
 man-install:
 	@echo

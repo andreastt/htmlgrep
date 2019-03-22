@@ -1,4 +1,3 @@
 Makefile.local
 doc/*.1
-doc/*.html
 target/
