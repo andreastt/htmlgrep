@@ -1,3 +1,5 @@
+POD2MAN = pod2man -utf8 -c'htmlgrep suite' -ncss -r'$(shell git describe --tags)' -qnone
+
 m1 = doc/css.1.pod
 man1 = $(m1:.pod=)
 html1 = $(m1:.pod=.html)
@@ -19,7 +21,7 @@ man-uninstall:
 .PHONY: man man-test man-clean man-install man-uninstall
 
 %.1: %.1.pod
-	pod2man -utf8 -c'htmlgrep suite' -ncss -r'$(shell git describe --tags)' -qnone $< >$@
+	$(POD2MAN) $< >$@
 
 %.1.html: %.1.pod
 	pod2html $< >$@
