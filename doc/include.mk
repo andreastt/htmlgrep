@@ -19,7 +19,7 @@ man-uninstall:
 .PHONY: man man-test man-clean man-install man-uninstall
 
 %.1: %.1.pod
-	pod2man -utf8 -c'htmlgrep suite' -ncss -r'$(shell git describe --tags)' $< >$@
+	pod2man -utf8 -c'htmlgrep suite' -ncss -r'$(shell git describe --tags)' -qnone $< >$@
 
 %.1.html: %.1.pod
 	pod2html $< >$@
