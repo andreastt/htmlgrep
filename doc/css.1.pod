@@ -28,6 +28,29 @@ Limit search to I<num> hits.
 
 =back
 
+=head1 EXIT STATUS
+
+=over
+
+=item B<0>
+
+Success.
+
+=item B<64>
+
+Indicates a usage problem, such as passing an invalid flag or using
+a malformed selector.
+
+=item B<70>
+
+An internal program error occurred whilst grepping the document.
+
+=item B<74>
+
+An I/O error caused by failure to read or write to disk.
+
+=back
+
 =head1 SEE ALSO
 
 L<grep(1)>, L<sed(1)>, L<awk(1)>

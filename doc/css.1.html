@@ -16,6 +16,7 @@
   <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
   <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
   <li><a href="#FLAGS">FLAGS</a></li>
+  <li><a href="#EXIT-STATUS">EXIT STATUS</a></li>
   <li><a href="#SEE-ALSO">SEE ALSO</a></li>
 </ul>
 
@@ -51,6 +52,36 @@
 <dd>
 
 <p>Limit search to <i>num</i> hits.</p>
+
+</dd>
+</dl>
+
+<h1 id="EXIT-STATUS">EXIT STATUS</h1>
+
+<dl>
+
+<dt id="pod0"><b>0</b></dt>
+<dd>
+
+<p>Success.</p>
+
+</dd>
+<dt id="pod64"><b>64</b></dt>
+<dd>
+
+<p>Indicates a usage problem, such as passing an invalid flag or using a malformed selector.</p>
+
+</dd>
+<dt id="pod70"><b>70</b></dt>
+<dd>
+
+<p>An internal program error occurred whilst grepping the document.</p>
+
+</dd>
+<dt id="pod74"><b>74</b></dt>
+<dd>
+
+<p>An I/O error caused by failure to read or write to disk.</p>
 
 </dd>
 </dl>
