@@ -22,7 +22,7 @@ endif
 run: $(BINS)
 	$^ $(BINFLAGS)
 
-test: $(SRCS)
+test: $(SRCS) man-test
 	RUST_BACKTRACE=1 cargo test --all -- --nocapture $(BINFLAGS)
 
 doc: $(SRCS) | man
@@ -32,16 +32,16 @@ doc: $(SRCS) | man
 fmt: $(SRCS)
 	cargo fmt
 
-clean: clean-man
+clean: man-clean
 	rm -f css
 	rm -rf target/
 
-install: $(BINS) install-man
+install: $(BINS) man-install
 	install -d -m 0755 $(prefix)
 	install -d -m 0755 $(prefix)/bin
 	install -m 0755 $(TARGET)/css $(prefix)/bin
 
-uninstall: uninstall-man
+uninstall: man-uninstall
 	rm -f $(prefix)/bin/css
 
 .PHONY: all run test doc clean install uninstall

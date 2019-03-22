@@ -1,0 +1,33 @@
+=head1 NAME
+
+css - search HTML documents by CSS selectors
+
+=head1 SYNOPSIS
+
+B<css> [B<-c0h>] [B<-m> I<num>] I<pattern> [I<file>...]
+
+=head1 DESCRIPTION
+
+Foo.
+
+=head1 FLAGS
+
+=over
+
+=item B<-c>
+
+Count hits, rather than enumerating them.
+
+=item B<-0>
+
+Use a C<NUL> terminator for interoperability with other programs.
+
+=item B<-m> I<num>
+
+Limit search to I<num> hits.
+
+=back
+
+=head1 SEE ALSO
+
+L<grep(1)>, L<sed(1)>, L<awk(1)>

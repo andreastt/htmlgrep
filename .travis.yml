@@ -5,12 +5,6 @@ cache:
   - $HOME/.cargo
   - $TRAVIS_BUILD_DIR/target
 
-addons:
-  apt:
-    packages:
-    - asciidoc
-    - libxml2-utils
-
 rust:
 - nightly
 - beta

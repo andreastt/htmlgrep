@@ -1,21 +1,26 @@
-A2X = XML_CATALOG_FILES=/usr/local/etc/xml/catalog a2x --verbose
+m1 = doc/css.1.pod
+man1 = $(m1:.pod=)
+html1 = $(m1:.pod=.html)
 
-m1 = doc/css.1.txt
-man1 = $(m1:.txt=)
+man: $(man1) $(html1)
 
-%.1: %.1.txt
-	$(A2X) -f manpage $<
+man-test: $(m1)
+	podchecker $<
 
-man: $(man1)
-
-clean-man:
+man-clean:
 	rm -f doc/*.1
-	rm -f doc/*.xml
+	rm -f doc/*.html
 
-install-man:
+man-install:
 	@echo
 
-uninstall-man:
+man-uninstall:
 	@echo
 
-.PHONY: man clean-man install-man uninstall-man
+.PHONY: man man-test man-clean man-install man-uninstall
+
+%.1: %.1.pod
+	pod2man -utf8 -c'htmlgrep suite' -ncss -r'$(shell git describe --tags)' $< >$@
+
+%.1.html: %.1.pod
+	pod2html $< >$@
