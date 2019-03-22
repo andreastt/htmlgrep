@@ -22,8 +22,12 @@ endif
 run: $(BINS)
 	$^ $(BINFLAGS)
 
-test: $(SRCS) man-test
-	RUST_BACKTRACE=1 cargo test --all -- --nocapture $(BINFLAGS)
+test: $(SRCS) | man-test lint
+	RUST_BACKTRACE=1 cargo test --all -- --nocapture
+	RUST_BACKTRACE=1 cargo test --examples
+
+lint: $(SRCS)
+	cargo clippy
 
 doc: $(SRCS) | man
 	cargo doc
@@ -44,7 +48,7 @@ install: $(BINS) man-install
 uninstall: man-uninstall
 	rm -f $(prefix)/bin/css
 
-.PHONY: all run test doc clean install uninstall
+.PHONY: all run test lint doc clean install uninstall
 
 $(BINS): $(SRCS)
 	cargo build $(CARGOFLAGS)
