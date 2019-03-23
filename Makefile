@@ -29,12 +29,12 @@ test: $(SRCS) | man-test lint
 lint: $(SRCS)
 	cargo clippy
 
+fmt: $(SRCS)
+	cargo fmt
+
 doc: $(SRCS) | man
 	cargo doc
 	@echo target/doc
-
-fmt: $(SRCS)
-	cargo fmt
 
 clean: man-clean
 	rm -f css
@@ -48,7 +48,7 @@ install: $(BINS) man-install
 uninstall: man-uninstall
 	rm -f $(prefix)/bin/css
 
-.PHONY: all run test lint doc clean install uninstall
+.PHONY: all run test lint fmt doc clean install uninstall
 
 $(BINS): $(SRCS)
 	cargo build $(CARGOFLAGS)
