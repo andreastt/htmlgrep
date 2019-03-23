@@ -1,5 +1,8 @@
 POD2MAN = pod2man -utf8 -c'htmlgrep suite' -ncss -r'$(shell git describe --tags)' -qnone
 
+mandir ?= $(prefix)/share/man
+man1dir = $(mandir)/man1
+
 m1 = doc/css.1.pod
 man1 = $(m1:.pod=)
 html1 = $(m1:.pod=.html)
@@ -12,11 +15,12 @@ man-test: $(m1)
 man-clean:
 	rm -f doc/*.1
 
-man-install:
-	@echo
+man-install: $(man)
+	install -d -m 755 $(man1dir)
+	install -m 644 $(man1) $(man1dir)
 
 man-uninstall:
-	@echo
+	rm -f $(man1dir)/$(man1)
 
 .PHONY: man man-test man-clean man-install man-uninstall
 

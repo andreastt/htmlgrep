@@ -43,7 +43,7 @@ clean: man-clean
 install: $(BINS) man-install
 	install -d -m 0755 $(prefix)
 	install -d -m 0755 $(prefix)/bin
-	install -m 0755 $(TARGET)/css $(prefix)/bin
+	install -m 0755 target/$(TARGET)/css $(prefix)/bin
 
 uninstall: man-uninstall
 	rm -f $(prefix)/bin/css
