@@ -4,7 +4,7 @@ prefix := /usr/local
 TARGET ?= debug
 
 BINS := target/$(TARGET)/css
-SRCS := $(wildcard src/**/*.rs)
+SRCS := $(wildcard *.rs)
 
 all: $(BINS) man
 
