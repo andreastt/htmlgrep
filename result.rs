@@ -11,17 +11,30 @@ pub enum Error {
 
 impl error::Error for Error {
 	fn description(&self) -> &str {
-		"invalid selector"
+		match self {
+			Error::Parse => "invalid selector",
+			Error::Io(_) => "i/o error",
+		}
 	}
 
 	fn cause(&self) -> Option<&error::Error> {
-		None
+		match self {
+			Error::Parse => None,
+			Error::Io(ref e) => Some(e),
+		}
 	}
 }
 
 impl fmt::Display for Error {
 	fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-		write!(f, "oh no")
+		let s = match * self {
+			Error::Parse => {
+				use std::error::Error;
+				self.description().to_string()
+			}
+			Error::Io(ref err) => err.to_string(),
+		};
+		write!(f, "{}", s)
 	}
 }
 
