@@ -17,6 +17,7 @@
   <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
   <li><a href="#FLAGS">FLAGS</a></li>
   <li><a href="#EXIT-STATUS">EXIT STATUS</a></li>
+  <li><a href="#EXAMPLE">EXAMPLE</a></li>
   <li><a href="#SEE-ALSO">SEE ALSO</a></li>
 </ul>
 
@@ -85,6 +86,32 @@
 
 </dd>
 </dl>
+
+<h1 id="EXAMPLE">EXAMPLE</h1>
+
+<p>Given the followig HTML document, <i>blog.html</i>:</p>
+
+<pre><code>        &lt;!doctype html&gt;
+        &lt;meta charset=utf-8&gt;
+        &lt;title&gt;My first blog post&lt;/title&gt;
+        &lt;meta name=keywords content=blog,first,hello&gt;
+        &lt;meta name=description content=&quot;First entry to blog.&quot;&gt;</code></pre>
+
+<p>To find all occurrences of <code>&lt;meta</code>&gt; elements:</p>
+
+<pre><code>        % css meta blog.html
+        &lt;meta content=&quot;blog,first,hello&quot; name=&quot;keywords&quot;&gt;
+        &lt;meta content=&quot;First entry to blog.&quot; name=&quot;description&quot;&gt;</code></pre>
+
+<p>And to only look for <code>&lt;meta</code>&gt; elements with a name attribute equal to &quot;<i>keywords</i>&quot; and a content attribute containing &quot;<i>blog</i>&quot; in a space-separated list:</p>
+
+<pre><code>        % css meta[name=keywords][content~=blog] blog.html
+        &lt;meta content=&quot;blog,first,hello&quot; name=&quot;keywords&quot;&gt;</code></pre>
+
+<p>It can also receive streaming content from stdin:</p>
+
+<pre><code>        % curl -L https://sny.no/ | css title
+        &lt;title&gt;Andreas Tolfsen&lt;/title&gt;</code></pre>
 
 <h1 id="SEE-ALSO">SEE ALSO</h1>
 

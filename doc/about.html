@@ -23,47 +23,6 @@ similar to <a href=https://developer.mozilla.org/en-US/docs/Web/API/Document/que
 TODO.
 
 
-<h2>Usage</h2>
-
-<p>
-Given the followig HTML document, <em>blog.html</em>:
-
-<pre>
-&lt;!doctype html&gt;
-&lt;meta charset=utf-8&gt;
-&lt;title&gt;My first blog post&lt;/title&gt;
-&lt;meta name=keywords content=blog,first,hello&gt;
-&lt;meta name=description content="First entry to blog."&gt;
-</pre>
-
-<p>
-To find all occurrences of <code>&lt;meta&gt;</code> elements:
-
-<pre>
-% css meta blog.html
-&lt;meta content="blog,first,hello" name="keywords"&gt;
-&lt;meta content="First entry to blog." name="description"&gt;
-</pre>
-
-<p>
-And to only look for <code>&lt;meta&gt;</code> elements
-with a <code>name</code> attribute equal to "keywords"
-and a <code>content</code> attribute containing "blog" in a space-separated list:
-
-<pre>
-% css meta[name=keywords][content~=blog] blog.html
-&lt;meta content="blog,first,hello" name="keywords"&gt;
-</pre>
-
-<p>
-It can also receive streaming content from stdin:
-
-<pre>
-% curl -L https://sny.no/ | css title
-&lt;title&gt;Andreas Tolfsen&lt;/title&gt;
-</pre>
-
-
 <h2>Library</h2>
 
 <p>

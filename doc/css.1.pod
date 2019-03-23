@@ -51,6 +51,34 @@ An I/O error caused by failure to read or write to disk.
 
 =back
 
+=head1 EXAMPLE
+
+Given the followig HTML document, I<blog.html>:
+
+	<!doctype html>
+	<meta charset=utf-8>
+	<title>My first blog post</title>
+	<meta name=keywords content=blog,first,hello>
+	<meta name=description content="First entry to blog.">
+
+To find all occurrences of C<<meta>> elements:
+
+	% css meta blog.html
+	<meta content="blog,first,hello" name="keywords">
+	<meta content="First entry to blog." name="description">
+
+And to only look for C<<meta>> elements with a name attribute equal
+to "I<keywords>" and a content attribute containing "I<blog>" in a
+space-separated list:
+
+	% css meta[name=keywords][content~=blog] blog.html
+	<meta content="blog,first,hello" name="keywords">
+
+It can also receive streaming content from stdin:
+
+	% curl -L https://sny.no/ | css title
+	<title>Andreas Tolfsen</title>
+
 =head1 SEE ALSO
 
 L<grep(1)>, L<sed(1)>, L<awk(1)>
