@@ -5,7 +5,6 @@ authors = ["Andreas Tolfsen <ato@sny.no>"]
 license = "ISC"
 description = "htmlgrep is a suite of tools for searching HTML documents"
 repository = "https://git.sny.no/htmlgrep"
-readme = "doc/about.html"
 documentation = "https://docs.rs/htmlgrep"
 keywords = ["grep", "html", "search", "find"]
 categories = ["command-line-utilities", "parsing", "text-processing"]
