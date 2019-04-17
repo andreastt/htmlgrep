@@ -6,6 +6,7 @@ license = "ISC"
 description = "htmlgrep is a suite of tools for searching HTML documents"
 repository = "https://git.sny.no/htmlgrep"
 documentation = "https://docs.rs/htmlgrep"
+homepage = "https://git.sny.no/htmlgrep/about/"
 keywords = ["grep", "html", "search", "find"]
 categories = ["command-line-utilities", "parsing", "text-processing"]
 
