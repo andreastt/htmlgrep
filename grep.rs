@@ -21,7 +21,7 @@ impl Iterator for Matches {
 		match self.0.next() {
 			Some(css_match) => {
 				let node = css_match.as_node();
-				let mut raw_source = node.to_string();
+				let raw_source = node.to_string();
 				let source = raw_source.replace("\n", "");
 
 				let entry = Match {

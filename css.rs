@@ -190,7 +190,7 @@ fn inner_main(argv: env::Args) -> ProgramResult<()> {
 			options,
 		} => {
 			for path in files {
-				let mut file = File::open(path.clone()).map_err(|e| (e, path.clone()))?;
+				let file = File::open(path.clone()).map_err(|e| (e, path.clone()))?;
 				let matches = htmlgrep::select(&selector, file)?;
 
 				if options.count {
