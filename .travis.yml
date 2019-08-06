@@ -10,6 +10,11 @@ rust:
 - beta
 - stable
 
+matrix:
+  allow_failures:
+    - rust: nightly
+    fast_finish: true
+
 before_install:
 - rustup component add clippy
 
