@@ -206,9 +206,10 @@ fn inner_main(argv: env::Args) -> ProgramResult<()> {
 }
 
 fn print_count(matches: htmlgrep::Matches, opts: Options) {
+	let count = matches.count();
 	match opts.max {
-		Some(n) if matches.count() > n => print!("{}{}", n, opts.separator),
-		Some(_) | None => print!("{}{}", matches.count(), opts.separator),
+		Some(n) if count > n => print!("{}{}", n, opts.separator),
+		Some(_) | None => print!("{}{}", count, opts.separator),
 	}
 }
 
