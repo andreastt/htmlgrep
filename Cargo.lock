@@ -108,7 +108,7 @@ dependencies = [
 
 [[package]]
 name = "htmlgrep"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "kuchiki 0.7.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
