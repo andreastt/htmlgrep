@@ -147,7 +147,7 @@ impl<'a> Lexer<'a> {
 	fn is_integer(&self, ns: &str) -> bool {
 		for b in ns.bytes() {
 			match b {
-				b'0'...b'9' => {}
+				b'0'..=b'9' => {}
 				_ => return false,
 			}
 		}
@@ -161,7 +161,7 @@ impl<'a> Lexer<'a> {
 		loop {
 			let b = self.byte(0);
 			let digit = match b {
-				b'0'...b'9' => i64::from(b - b'0'),
+				b'0'..=b'9' => i64::from(b - b'0'),
 				_ => break,
 			};
 
